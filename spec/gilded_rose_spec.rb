@@ -92,7 +92,7 @@ describe GildedRose do
       it_behaves_like 'item'
 
       context 'when sell_in is more than 10 days' do
-        let(:sell_in) { 11 }
+        let(:sell_in) { 15 }
 
         it 'increases quality by one' do
           expect(item.quality).to eq quality + 1
