@@ -8,11 +8,11 @@ module ItemService
 
     def update_quality_value
       case item.sell_in
-      when (11..)
+      when (10..)
         1
-      when 6..10
+      when 5...10
         2
-      when 0..5
+      when 0...5
         3
       end
     end

@@ -2,7 +2,7 @@ module ItemService
   class Normal
     MIN_QUALITY = 0
     MAX_QUALITY = 50
-    UPDATE_QUALITY_VALUE = 1
+    DEFAULT_UPDATE_QUALITY_VALUE = 1
 
     def initialize(item)
       @item = item
@@ -23,11 +23,7 @@ module ItemService
 
     def update_quality!
       quality = updated_quality
-      # item.quality = case quality
-      # when ->(x) { x > MAX_QUALITY }
-      #   MAX_QUALITY
-      # when
-      # end
+
       quality = MIN_QUALITY if quality.negative?
       quality = MAX_QUALITY if quality > MAX_QUALITY
 
@@ -39,11 +35,11 @@ module ItemService
     end
 
     def update_quality_value
-      item.sell_in.negative? ? UPDATE_QUALITY_VALUE * 2 : UPDATE_QUALITY_VALUE
+      item.sell_in.negative? ? DEFAULT_UPDATE_QUALITY_VALUE * 2 : DEFAULT_UPDATE_QUALITY_VALUE
     end
 
     def need_update_quality?
-      item.quality > MIN_QUALITY && item.quality < MAX_QUALITY
+      item.quality >= MIN_QUALITY && item.quality <= MAX_QUALITY
     end
   end
 end
