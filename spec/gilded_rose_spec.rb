@@ -1,4 +1,4 @@
-require 'rspec'
+require 'spec_helper'
 
 require 'gilded_rose'
 
