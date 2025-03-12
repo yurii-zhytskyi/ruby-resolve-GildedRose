@@ -1,5 +1,12 @@
 AllCops:
   NewCops: enable
 
+# since ruby-3.4 `# frozen_string_literal: true` is default
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
+
 plugins:
   - rubocop-rspec
